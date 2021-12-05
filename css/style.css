@@ -1,0 +1,347 @@
+/* CSS */
+@font-face {
+    font-family: Raider;
+    src: url("../fonts/raidercrusaderlaser.ttf");
+}
+
+@font-face {
+    font-family: Andika;
+    src: url("../fonts/AndikaNewBasic-R.ttf");
+}
+
+body {
+    margin-top: 80px;
+    font-family: Andika;
+}
+
+footer {
+    border-top: 1px solid #969696;
+    margin-top: 10px;
+}
+
+/*  */
+#twitter p {
+    text-align: center;
+}
+
+.jumbotron span {
+    font-family: Raider;
+    color: #e8641b;
+}
+
+.dark-theme {
+    background-color: #393a3b;
+    color: white;
+}
+
+.light-theme {
+    background-color: white;
+    color: #393a3b;
+}
+
+.image-logo {
+    width: 30%;
+}
+
+.fixpadding {
+    padding: 5px;
+}
+
+#Product {
+    padding-top: 20px;
+    background-color: #A2A2A2;
+}
+
+#Product .row {
+    padding-left: 50px
+}
+
+/* Navbar */
+nav {
+    border-bottom: 1px solid #969696 !important;
+}
+
+/* Style tab */
+.tab {
+    overflow: hidden;
+}
+
+/* Style button inside tab */
+.tab button {
+    color: white;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change Color buttons when hover */
+.tab button:hover {
+    color: #527bff;
+}
+
+/* Tab active */
+.tab button.active {
+    color: #527bff;
+    border-bottom: 5px solid #527bff;
+}
+
+/* Style tabcontent */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Caret when dropdown was opened */
+.dropdown.open .caret {
+    border-top: none;
+    border-bottom: 4px solid #000000;
+}
+
+/* Timer CSS */
+#timer {
+    position: relative;
+}
+
+#bg {
+    border: 4px solid #153cbd;
+    background-color: white;
+    width: 50%;
+    position: relative;
+    margin-left: 25%;
+    padding-left: 0px !important;
+}
+
+#percentBg {
+    background-color: #55aef7;
+    padding: 40px 0px;
+}
+
+#percent {
+    color: #295afd;
+    font-size: 20px;
+    left: 40%;
+    top: 28%;
+    position: absolute;
+}
+
+.text-padding {
+    padding: 10px 0px;
+}
+
+#time {
+    font-size: 60px;
+}
+
+#date {
+    font-size: 40px;
+}
+
+/* Setting */
+#settingForm {
+    width: 20%;
+    right: 40%;
+    top: 40%;
+    padding: 20px;
+    position: fixed;
+    background-color: #7e8185;
+}
+
+#closeForm {
+    position: absolute;
+    left: 105%;
+}
+
+#settingForm,
+#closeForm {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+#dateS,
+#dateF,
+#id {
+    color: black;
+}
+
+/* loading */
+.bgP{
+    position: absolute;
+    margin-left: 5%;
+}
+.loader{
+    position: relative;
+}
+
+#loading img{
+    border-radius: 100px;
+    background-color: #8989fc;
+    box-shadow:0 0 20px #8989fc;
+}
+.anm{
+    margin:10px;
+    margin-left: 75%;
+    width: max-content;
+}
+.anm:nth-child(2){     
+    animation-delay: 0.1s;
+}
+.anm:nth-child(3){    
+    animation-delay: 0.3s;
+}
+.anm:nth-child(4){    
+    animation-delay: 0.5s;
+}
+/* youtube & wattpad */
+.youtube{
+    background-color: #cc0000;
+    border: 0px solid;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.youtube:hover{
+    background-color: #8b0303;
+}
+.wattpad{
+    background-color: #ff6612;
+    border: 0px solid;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+.wattpad:hover{
+    background-color: #a3400b;
+}
+/* animation */
+@keyframes loadR {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes loadL {
+    0%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(90deg);
+    }
+}
+@keyframes loadOutR {
+    0%{
+        opacity: 1;
+        margin-left: 75%;
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        margin-left: 120%;
+    }
+}
+@keyframes loadOutL {
+    0%{
+        opacity: 1;
+        margin-left: 75%;
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        margin-left: -20%;
+    }
+}
+@keyframes loadIn{
+    0%{
+        opacity: 0;
+        margin-bottom: 0%;
+    }
+    100%{
+        opacity: 1;
+        margin-bottom: initial;
+    }
+}
+@keyframes marginIn{
+    0%{
+        margin-bottom: 0%;
+    }
+    100%{
+        margin-bottom: 90%;
+    }
+}

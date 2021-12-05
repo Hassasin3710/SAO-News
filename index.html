@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <link rel="icon" href="./images/Logo.png">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">  
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Sword Art Online News</title>
+</head>
+<body class="dark-theme" onload="animate()">
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+
+    <div class="FB_Like_Script">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v4.0&appId=436894910439761&autoLogAppEvents=1"></script>
+    </div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://apis.google.com/js/platform.js"></script>
+
+    <nav class="navbar navbar-default navbar-fixed-top dark-theme">
+        <div class="container tab">
+            <div class="collapse navbar-collapse">
+                <div class="nav navbar-nav navbar-left">
+                    <button class="tablink" onclick="tabCtrl(event, 'home')">Home</button>
+                    <button class="tablink" onclick="tabCtrl(event, 'timer')">Timer</button>
+                    <button class="tablink" onclick="tabCtrl(event, 'twitter')">Twitter News</button>
+                    <button class="tablink" onclick="tabCtrl(event, 'about')">About Us</button>
+                </div>
+                <div class="navbar-header navbar-right">
+                    <!-- <div class="switch">
+                        <label class="switch">
+                            <input type="checkbox" onclick="changeTheme()">
+                            <span class="slider round"></span>
+                        </label>
+                    </div> -->
+                    <div id="setting">
+                        <div id="settingButton">
+                            <button onclick="settingShow()">Setting</button>
+                        </div>
+                        <div id="settingForm" style="display: none;">
+                            <button id="closeForm" class="glyphicon glyphicon-remove" onclick="settingShow()"></button>
+                            
+                            <div style="margin-top:10px; font-size: medium;" class="text-center">
+                                <div>Start: <input type="date" id="dateS"></div>
+                                <div>Final: <input type="date" id="dateF"></div>
+                                <div>Your ID: <input type="text" id="id" style="width: 50%;"></div>
+                                <button type="submit" style="margin-left: 30%;margin-top: 20px;width: 40%;" onclick="save()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div id="home" class="tabcontent">
+            <div id="poster">
+                <div id="bgP" class="bgP" style="opacity: 0;">
+                    <img src="./images/bg.png">
+                </div>
+                <div id="loading" class="loader">
+                    <div class="anm" style="animation: loadR 2s infinite;"><img src="./images/story_circle01.png"></div>
+                    <div class="anm" style="animation: loadL 0.8s infinite;"><img src="./images/story_circle02.png"></div>
+                    <div class="anm" style="animation: loadL 2s infinite;"><img src="./images/story_circle03.png"></div>
+                    <div class="anm" style="animation: loadR 1.5s infinite;"><img src="./images/story_circle04.png"></div>
+                </div>  
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="timer" class="tabcontent row">
+            <div id="SAOlogo" class="text-center">
+                <img src="./images/logoSAO.png" alt="SAO Logo" style="width: 50%;">
+            </div>
+            <div class="col-sm-6 text-center">
+                <div id="day" class="text-padding"></div>
+                <div id="bg">
+                    <div id="percentBg">
+                        <span id="percent"></span>
+                    </div>
+                </div>
+                <div id="note" class="text-padding">
+                    Because the official launch date hasn't been announced.<br> So you can edit this value in settings.
+                </div>
+            </div>
+            <div class="col-sm-6">
+               <div id="clock" class="text-center">
+                <p><span id="time"></span><br>
+                <span id="date"></span></p>
+               </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="twitter" class="tabcontent">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>@sao_anime is official twitter of Sword Art Online.<br>You will see lastest news about <br> anime, events, figure or something else.</p>
+                    <a class="twitter-timeline" data-height="1000" data-theme="dark" href="https://twitter.com/sao_anime?ref_src=twsrc%5Etfw">Tweets by sao_anime</a>
+                </div>
+                <div class="col-sm-3">
+                    <p>@sao_gameinfo is official twitter of SAO Game.<br>You will find all infomation about Game like <br> events, update, new game,... here.</p>
+                    <a class="twitter-timeline" data-height="1000" data-theme="dark" href="https://twitter.com/sao_gameinfo?ref_src=twsrc%5Etfw">Tweets by sao_gameinfo</a>
+                </div>
+                <div class="col-sm-3">
+                    <p>@sao_wikia is an author of SAO Wiki Fandom, he'll <br> update news, illustration,... from reliable source. <br> So ... i think it maybe useful :D</p>
+                    <a class="twitter-timeline" data-height="1000" data-theme="dark" href="https://twitter.com/sao_wikia?ref_src=twsrc%5Etfw">Tweets by sao_wikia</a>
+                </div>
+                <div class="col-sm-3">
+                    <p>@gsimenas, a translator, an author of SAO Wiki Fandom, he'll update lastest lightnovel's translation<br>If something make you confused, just ask him.</p>
+                    <a class="twitter-timeline" data-height="1000" data-theme="dark" href="https://twitter.com/gsimenas?ref_src=twsrc%5Etfw">Tweets by gsimenas</a>
+                </div>
+            </div>
+        </div>  
+    </section>
+    <section>
+        <div id="about" class="tabcontent">
+            <div id="banner">
+                <div class="jumbotron text-center">
+                    <h1><span>The HassasiN Team</span></h1>
+                    <p>We're The Hassasin Team. Not a Fansub. Just a Team.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHassasin3710%2F&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId=1065309180323451" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                </div>
+                <div class="col-sm-4">
+                    <a class="twitter-timeline" data-width="500" data-height="500" data-theme="dark" href="https://twitter.com/Hassasin3710?ref_src=twsrc%5Etfw">Tweets by Hassasin3710</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+
+            <div id="product" >
+                <h2 class="text-center border-bottom">Sản phẩm của Team</h2>
+                <div class="container-fluid row ">        
+                    <div class="col-sm-3 border-right">
+                        <h3>Sword Art Online</h3>
+                        <ul class="list-group">
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phân Tích Nhân Vật<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/2XrsXHN" target="_blank">Kirito</a></li>
+                                    <li><a href="http://bit.ly/2IkCABF" target="_blank">Asuna</a></li>
+                                    <li><a href="http://bit.ly/316sqgw" target="_blank">Sinon</a></li>
+                                    <li><a href="http://bit.ly/2WKVsD6" target="_blank">Klein</a></li>
+                                    <li><a href="http://bit.ly/2JZwDgO" target="_blank">Agil</a></li>
+                                    <li><a href="http://bit.ly/2Wb9SIh" target="_blank">Silica</a></li>
+                                    <li><a href="http://bit.ly/2Ih32fs" target="_blank">Lizbeth</a></li>
+                                    <li><a href="http://bit.ly/2HZxUlM" target="_blank">Suguha</a></li>
+                                    <li><a href="http://bit.ly/31b98GH" target="_blank">Yuuki</a></li>
+                                    <li><a href="http://bit.ly/2JXyF0Q" target="_blank">Yui</a></li>
+                                    <li><a href="http://bit.ly/2IhSQmZ" target="_blank">Sachi</a></li>                                
+                                    <li><a href="http://bit.ly/2EV2Lhn" target="_blank">Cardinal</a></li>  
+                                    <li><a href="http://bit.ly/2QvzqiI" target="_blank">Gabriel - PoH</a></li>
+                                    <li><a href="http://bit.ly/37gVfJi" target="_blank">Scheta Sythesis Twelve</a></li>   
+                                    <li><a href="http://bit.ly/2soshJ0" target="_blank">Furgr</a></li>                                                                          
+                                </ul>
+                                <span class="badge">15</span>
+                            </li>
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phân Tích Vũ Khí<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/2EPxnRm" target="_blank">Thời Xuyên Kiếm</a></li>
+                                    <li><a href="http://bit.ly/2XpUWaR" target="_blank">Kim Mộc Tê Kiếm</a></li>
+                                    <li><a href="http://bit.ly/2Z8NhOi" target="_blank">Bích Hồng Kiếm</a></li>
+                                    <li><a href="http://bit.ly/2MuhEgL" target="_blank">Dạ Không Kiếm</a></li>                                                            
+                                </ul>
+                                <span class="badge">4</span>
+                            </li>
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phân Tích Linh Tinh<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/2F8SkXj" target="_blank">Vũ Khí SAO P1</a></li>
+                                    <li><a href="http://bit.ly/2QvAC5G" target="_blank">Vũ Khí SAO P2</a></li>
+                                    <li><a href="http://bit.ly/36cIbVd" target="_blank">Extra Sword Skill SAO Aincrad</a></li>
+                                    <li><a href="http://bit.ly/2QIVS7s" target="_blank">Beta Tester</a></li>                                                      
+                                    <li><a href="http://bit.ly/2JWHXdF" target="_blank">Code 871</a></li>
+                                    <li><a href="http://bit.ly/2Oz2lD4" target="_blank">Eiji-Yuuna</a></li>  
+                                </ul>
+                                <span class="badge">6</span>
+                            </li>
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">OP/ED Vietsub<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/SAOCrossingField" target="_blank">OP ss1: Crossing Field</a></li>
+                                    <li><a href="http://bit.ly/SAOOverfly" target="_blank">ED ss1: Overfly</a></li>
+                                    <li><a href="http://bit.ly/SAOOP_CourageHasinSub" target="_blank">OP ss2: Courage</a></li>
+                                    <li><a href="http://bit.ly/SAOHasinOP1mv" target="_blank">OP1 ss3 MV</a></li>
+                                    <li><a href="http://bit.ly/SAOHasinED1mv" target="_blank">ED1 ss3 MV</a></li>
+                                    <li><a href="http://bit.ly/SAOHasinOP2" target="_blank">OP2 ss3: RESISTER</a></li>
+                                    <li><a href="http://bit.ly/SAOHasinED2" target="_blank">ED2 ss3: forget-me-not</a></li>
+                                    <li><a href="http://bit.ly/SAOHasinED2MV_Sub" target="_blank">ED2 ss3 MV: forget-me-not</a></li>
+                                    <li><a href="http://bit.ly/SAOED3HasinSub " target="_blank">ED3 ss3: Over the Rainbow</a></li>
+                                </ul>
+                                <span class="badge">9</span>
+                            </li>
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lightnovel<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/SAOAVSub0920" target="_blank">[SAOVN] Vol 09 -> Vol 20</a></li>
+                                    <li><a href="http://bit.ly/2SC2zvd" target="_blank">Vol 21 Chapter 2 (33%)</a></li>
+                                    <li><a href="http://bit.ly/2JXbx2B" target="_blank">Chromatic Colors</a></li>
+                                    <li><a href="http://bit.ly/31tZjmP" target="_blank">Kí Ức Mùa Hè</a></li>
+                                    <li><a href="http://bit.ly/2HAMNKQ" target="_blank">Mùa Hè và Mũ Rơm</a></li>
+                                    <li><a href="http://bit.ly/2n899wg" target="_blank">SAO Character Vol4: Sinon</a></li>                                    
+                                </ul>
+                                <span class="badge">6</span>
+                            </li>
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Game<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="https://youtu.be/ITjto1jzy3w" target="_blank">SAO Lost Song 01</a></li>
+                                    <li><a href="https://youtu.be/TFXcAup1ybg" target="_blank">SAO Lost Song 02</a></li>
+                                    <li><a href="https://youtu.be/87d8Y0pI_Y8" target="_blank">SAO Lost Song 03</a></li>
+                                    <li><a href="https://youtu.be/9zaoH92clHc" target="_blank">SAO Lost Song 04</a></li>
+                                    <li><a href="https://youtu.be/tRg8naSVi3g" target="_blank">SAO Lost Song 05</a></li>
+                                    <li><a href="https://youtu.be/sSo8VaYdPrE" target="_blank">SAO Lost Song 06</a></li>
+                                    <li><a href="https://youtu.be/x7CpACUT2dY" target="_blank">SAO Lost Song 07</a></li>
+                                </ul>                    
+                                <span class="badge">7</span>
+                            </li>
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manga<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/2KwGk5T" target="_blank">SAO ME 01</a></li>
+                                </ul>
+                                <span class="badge">1</span>
+                            </li>                    
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bonus Song in Blu-ray Disc<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="https://youtu.be/1uUxVQlC7fo" target="_blank">#1: Begining The Destiny</a></li>
+                                    <li><a href="http://bit.ly/SAOBonus2_2 " target="_blank">#2: Holding The Shadows</a></li>
+                                    <li><a href="https://youtu.be/N4IUd3TUwU8" target="_blank">#3: Cherishing the memory</a></li>
+                                </ul>
+                                <span class="badge">3</span>
+                            </li>                            
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 border-right">
+                        <h3>SAO Anime Vietsub</h3>
+                        <ul class="list-group">
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Season 3<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/35nU0YN" target="_blank">Cour 2: Alicization</a></li>
+                                    <li><a href="http://bit.ly/2IHI2PZ" target="_blank">Cour 3: War of Underworld</a></li>
+                                </ul>
+                                <span class="badge">2</span>
+                            </li>
+                        </ul>
+                        <h3>Tản Mạn Unital Ring</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="http://bit.ly/354lC3X" target="_blank">Khái Quát Chung</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/2QAqV5I" target="_blank">Cây Kĩ Năng</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 border-right">
+                        <h3>Anime khác</h3>
+                        <ul class="list-group">                            
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Midara na Ao-chan<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/Ao01HasinSub " target="_blank">Tập 1</a></li>
+                                    <li><a href="http://bit.ly/Ao02HasinSub " target="_blank">Tập 2</a></li>
+                                    <li><a href="http://bit.ly/Ao03HasinSub " target="_blank">Tập 3</a></li>
+                                    <li><a href="http://bit.ly/Ao04HasinSub " target="_blank">Tập 4</a></li>
+                                    <li><a href="http://bit.ly/Ao05HasinSub " target="_blank">Tập 5</a></li>
+                                    <li><a href="http://bit.ly/Ao06HasinSub " target="_blank">Tập 6</a></li>
+                                    <li><a href="http://bit.ly/Ao07HasinSub " target="_blank">Tập 7</a></li>
+                                    <li><a href="http://bit.ly/Ao08HasinSub " target="_blank">Tập 8</a></li>
+                                    <li><a href="http://bit.ly/Ao09HasinSub " target="_blank">Tập 9</a></li>
+                                    <li><a href="http://bit.ly/Ao10HasinSub " target="_blank">Tập 10</a></li>
+                                    <li><a href="http://bit.ly/Ao11HasinSub " target="_blank">Tập 11</a></li>
+                                    <li><a href="http://bit.ly/Ao12HasinSub " target="_blank">Tập 12</a></li>
+                                </ul>
+                                <span class="badge">12</span>
+                            </li>
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Karakai Jouzu no Takagi-san SS2 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/TakagiHasinSub01" target="_blank">Tập 1</a></li>
+                                    <li><a href="http://bit.ly/TakagiHasinSub02" target="_blank">Tập 2</a></li>
+                                    <li><a href="http://bit.ly/TakagiHasinSub03" target="_blank">Tập 3</a></li>                                    
+                                </ul>                                
+                                <span class="badge">3</span>
+                            </li>
+                            <li class="list-group-item"><a href="http://bit.ly/Trinity7HasinSakurasouVSub " target="_blank">Trinity Seven Movie: Thư viện Thiên Đàng</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/SlimeOVAHasinSub" target="_blank">Chuyển Sinh Thành Slime OVA 2</a></li>
+                        </ul>               
+                    </div>
+                    <div class="col-sm-3">
+                        <h3>Sản phẩm khác</h3>
+                        <ul class="list-group">
+                            <li class="dropdown list-group-item">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">SAO Funny Video (Sub Bựa)<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://bit.ly/2su3LpL" target="_blank">Tập 1</a></li>
+                                    <li><a href="http://bit.ly/367mHJz" target="_blank">Tập 2</a></li>                                   
+                                </ul>                                
+                                <span class="badge">2</span>
+                            </li>
+                            <li class="list-group-item"><a href="http://bit.ly/KhrOP8HasinVSub " target="_blank">OP8 Katekyo Hitman Reborn</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/KonosubaHasinED " target="_blank">ED Konosuba</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/TokyoGoulHasinOP " target="_blank">OP Tokyo Goul - Unravel</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/LiWHasinOP " target="_blank">OP Kaguya-sama Love is War</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/LiWHasinED " target="_blank">ED Kaguya-sama Love is War</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/Kimiiro_ni_Somaru" target="_blank">Kimiiro ni Somaru (Honkai Impact)</a></li>
+                            <li class="list-group-item"><a href="http://bit.ly/2XYDPft" target="_blank">Verada in Your Dream (Raw)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<footer>
+    <div class="row">
+        <div class="col-sm-4 text-center">  
+            <p></p>
+            <p>We're The Hassasin Team. Not a Fansub. Just a Team.</p>
+            <p>Follow Us at Facebook to get lastest version.</p>          
+            <p>©copyright Hassasin Team.</p>
+        </div>
+        <div class="col-sm-4 text-center"> 
+            <div class="fb-like fixpadding" data-href="https://facebook.com/hassasin3710" data-width="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+            <div class="fixpadding">
+                <a href="https://twitter.com/Hassasin3710?ref_src=twsrc%5Etfw" class="twitter-follow-button button" data-size="large" data-lang="vi" data-show-count="true"></a>
+            </div>
+            <div class="row">
+                <div class="col-sm-3" style="margin-right: 6%;"></div>
+                <div class="col-sm-2"><form action="https://bit.ly/HassasinBeater" method="get" target="_blank">
+                    <button type="submit" class="youtube">Youtube</button></form>
+                </div>
+                <div class="col-sm-2"><form action="https://www.wattpad.com/user/hassasin3710" method="get" target="_blank">
+                    <button type="submit" class="wattpad">Wattpad</button></form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 text-info text-center text-uppercase">
+            <h4>
+                <p>Thank everyone for help</p>
+                <p>also follow and support team.</p>
+                <p>Thank everyone.</p>
+            </h4>
+        </div>
+    </div>
+</footer>
+</html>
